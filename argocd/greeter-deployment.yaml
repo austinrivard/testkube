@@ -14,7 +14,7 @@ spec:
         app: greeter
     spec:
       containers:
-      - image: testkube
+      - image: docker.io/library/greeter:0.1
         name: greeter
         ports:
         - containerPort: 80
