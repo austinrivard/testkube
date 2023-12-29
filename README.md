@@ -12,7 +12,7 @@
    ```$ kubectl create namespace argocd```
 
 1. Apply argocd installation manifest
-   ```$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.8/manifests/install.yaml```
+   ```$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml```
 
 1. Verify argocd resources created
    ```$ kubectl get all -n argocd```
