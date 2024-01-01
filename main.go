@@ -9,7 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprint(w, "This is the root\n")
+		fmt.Fprint(w, "This is the root of a PR!\n")
 	})
 
 	http.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
