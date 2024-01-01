@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: greeter-previews
+spec:
+  generators:
+  - pullRequest:
+      github:
+        owner: austinrivard
+        repo: testkube
+        # Labels is used to filter the PRs that you want to target. (optional)
+        # labels:
+        # - preview
+      # if not using webhooks, how many seconds between polling (default 30 mins)
+      # requeueAfterSeconds: 1800
+  template:
+    metadata:
+      name: 'greeter-pr-{{number}}'
+    spec:
+      source:
+        repoURL: 'https://github.com/austinrivard/testkube'
+        targetRevision: '{{head_sha}}'
+        path: argocd/
+        kustomize:
+          images:
+          - 'docker.io/testkube/greeter:{{head-sha}}'
+          patches:
+          - target:
+              kind: Ingress
+              name: greeter
+            patch: |-
+              - op: replace
+                path: spec/rules/0/host
+                value: greeter-pr-{{number}}.test
+      project: default
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: testkube
