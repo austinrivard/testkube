@@ -25,7 +25,7 @@ RUN --mount=type=cache,target=/go/pkg/mod/ \
 # source code into the container.
 RUN --mount=type=cache,target=/go/pkg/mod/ \
     --mount=type=bind,target=. \
-    CGO_ENABLED=0 go build -o /bin/server .
+    CGO_ENABLED=0 GOOS=linux go build -o /bin/greeter
 
 ################################################################################
 # Create a new stage for running the application that contains the minimal
@@ -63,10 +63,10 @@ RUN adduser \
 USER appuser
 
 # Copy the executable from the "build" stage.
-COPY --from=build /bin/server /bin/
+COPY --from=build /bin/greeter /bin/
 
 # Expose the port that the application listens on.
 EXPOSE 8081
 
 # What the container should run when it is started.
-ENTRYPOINT [ "/bin/server" ]
+ENTRYPOINT [ "/bin/greeter" ]

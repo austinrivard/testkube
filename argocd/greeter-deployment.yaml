@@ -17,4 +17,4 @@ spec:
       - image: docker.io/library/greeter:0.1
         name: greeter
         ports:
-        - containerPort: 80
+        - containerPort: 8081
