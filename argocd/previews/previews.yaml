@@ -20,10 +20,10 @@ spec:
       source:
         repoURL: 'https://github.com/austinrivard/testkube'
         targetRevision: '{{head_sha}}'
-        path: argocd/
+        path: argocd
         kustomize:
           images:
-          - 'docker.io/testkube/greeter:{{head-sha}}'
+          - 'docker.io/testkube/greeter:{{head_sha}}'
           patches:
           - target:
               kind: Ingress

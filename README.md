@@ -22,3 +22,8 @@
 
 1. Navigate to https://localhost:8080, login as admin, get the randomly generated password by running
    ```$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo```
+
+
+Install Argo Workflows
+> ```$ kubectl create namespace argo```
+> ```$ kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.2/install.yaml```
