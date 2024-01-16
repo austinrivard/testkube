@@ -32,7 +32,7 @@ spec:
             patch: |-
               - op: replace
                 path: spec/rules/0/host
-                value: greeter-pr-{{number}}.test
+                value: "greeter-pr-{{number}}.test"
       project: default
       destination:
         server: https://kubernetes.default.svc
