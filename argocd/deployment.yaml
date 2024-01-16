@@ -14,7 +14,8 @@ spec:
         app: greeter
     spec:
       containers:
-      - image: docker.io/testkube/greeter
+      - image: greeter
+        imagePullPolicy: Never
         name: greeter
         ports:
         - containerPort: 8081
