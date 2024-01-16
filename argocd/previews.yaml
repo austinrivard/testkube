@@ -22,6 +22,7 @@ spec:
         targetRevision: '{{head_sha}}'
         path: argocd
         kustomize:
+          namePrefix: greeter-pr-{{number}}-
           images:
           - 'docker.io/testkube/greeter:{{head_sha}}'
           patches:
