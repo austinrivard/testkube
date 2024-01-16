@@ -27,7 +27,7 @@ spec:
           patches:
           - target:
               kind: Ingress
-              name: greeter
+              name: ingress
             patch: |-
               - op: replace
                 path: spec/rules/0/host
