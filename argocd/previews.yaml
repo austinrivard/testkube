@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: 'https://github.com/austinrivard/testkube'
         targetRevision: '{{head_sha}}'
-        path: argocd
+        path: argocd/
         kustomize:
           namePrefix: greeter-pr-{{number}}-
           images:
